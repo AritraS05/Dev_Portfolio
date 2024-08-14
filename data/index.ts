@@ -110,21 +110,13 @@ export const navItems = [
     {
       id: 2,
       title: "App Dev",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-      className: "md:col-span-2", // change to md:col-span-2
+      desc: "Designed and developed mobile app for Android platforms using React Native.",
+      className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
   ];
   
   export const socialMedia = [
-    {
-      id: 1,
-      img: "/git.svg",
-    },
-    {
-      id: 2,
-      img: "/twit.svg",
-    },
     {
       id: 3,
       img: "/link.svg",
