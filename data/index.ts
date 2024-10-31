@@ -86,6 +86,14 @@ export const navItems = [
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "https://whatsup-u96e.onrender.com/",
     },
+    {
+      id: 3,
+      title: "Feather",
+      des: "Make PDFs talk to you and enjoy reading interactively.",
+      img: "/p3.png",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "gsap.svg", "/fm.svg"],
+      link: "https://github.com/AritraS05/feather",
+    },
   ];
   
   export const testimonials = [
