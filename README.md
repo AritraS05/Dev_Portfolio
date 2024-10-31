@@ -1,1 +1,1 @@
-Do check out my Portfolio : [https://aritra-sarkar.vercel.app/](https://https://aritra-sarkar.vercel.app/)
+Do check out my Portfolio : 'https://aritra-sarkar.vercel.app/
