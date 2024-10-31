@@ -78,6 +78,14 @@ export const navItems = [
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "https://aritra-docs.vercel.app/",
     },
+    {
+      id: 2,
+      title: "Encryted chat application",
+      des: "Enjoy fully encryted one to one chats on the go.",
+      img: "/p2.png",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+      link: "https://whatsup-u96e.onrender.com/",
+    },
   ];
   
   export const testimonials = [
