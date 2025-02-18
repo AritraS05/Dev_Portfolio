@@ -94,6 +94,30 @@ export const navItems = [
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "gsap.svg", "/fm.svg"],
       link: "https://github.com/AritraS05/feather",
     },
+    {
+      id: 4,
+      title: "Voting dapp",
+      des: "A decentralized voting dapp built on Solana blockchain.",
+      img: "/p4.png",
+      iconLists: [],
+      link: "https://github.com/AritraS05/voting-dapp",
+    },
+    {
+      id: 5,
+      title: "Onchain Journal",
+      des: "Publish Journals on the Solana blockchain.",
+      img: "/p5.png",
+      iconLists: [],
+      link: "https://github.com/AritraS05/onchain-journal",
+    },
+    {
+      id: 6,
+      title: "Subscription Tracker API",
+      des: "A custom api  which maintains the subscriptions and sends email alerts before the subscription expires to remove unwanted subscriptions and keep the user updated.",
+      img: "/p6.png",
+      iconLists: [],
+      link: "https://github.com/AritraS05/subscription-tracker",
+    },
   ];
   
   export const testimonials = [
