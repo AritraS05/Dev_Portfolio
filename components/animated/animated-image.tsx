@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 import { motion } from "motion/react";
 import Image, { ImageProps } from "next/image";
 import { HTMLAttributes } from "react";
