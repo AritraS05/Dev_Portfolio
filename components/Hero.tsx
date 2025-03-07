@@ -5,8 +5,10 @@ import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa6'
 import { RiSpeakLine as SpeakIcon } from "react-icons/ri";
 import Image from 'next/image'
+import AnimationContainer from './animated/animated-container'
 const Hero = () => {
   return (
+    <AnimationContainer className='mb-8 relative lg:mb-0'>
     <div className='pb-20 pt-36'>
         <div>
             <Spotlight className='-top-40 -left-10 md:-left-32 md:-top-20  h-screen' fill='white'/>
@@ -61,6 +63,7 @@ const Hero = () => {
           </div>
         </div>
     </div>
+    </AnimationContainer>
   )
 }
 

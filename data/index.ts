@@ -7,61 +7,10 @@ export const navItems = [
   
   export const gridItems = [
     {
-      id: 1,
-      title: "Open to any tech oppurtunity",
-      description: "",
-      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-      imgClassName: "w-full h-full",
-      titleClassName: "justify-end",
-      img: "/b1.svg",
-      spareImg: "",
-    },
-    {
-      id: 2,
-      title: "Flexible with time zone communications",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "",
-      spareImg: "",
-    },
-    {
-      id: 3,
-      title: "My tech stack",
-      description: "I constantly try to improve",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-      imgClassName: "",
-      titleClassName: "justify-center",
-      img: "",
-      spareImg: "",
-    },
-    {
-      id: 4,
-      title: "Tech enthusiast with a passion for development.",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "/grid.svg",
-      spareImg: "/b4.svg",
-    },
-  
-    {
-      id: 5,
-      title: "Currently Coding",
-      description: "Typing...",
-      className: "md:col-span-3 md:row-span-2",
-      imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-      titleClassName: "justify-center md:justify-start lg:justify-center",
-      img: "/b5.svg",
-      spareImg: "/grid.svg",
-    },
-    {
       id: 6,
       title: "Do you want to start a project together?",
       description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+      className: "lg:col-span-10 md:col-span-3 md:row-span-1",
       imgClassName: "",
       titleClassName: "justify-center md:max-w-full max-w-60 text-center",
       img: "",
@@ -162,3 +111,88 @@ export const navItems = [
       img: "/link.svg",
     },
   ];
+
+  // skills
+export const SKILLS = [
+  {
+    title: "Languages",
+    stacks: ["C++","JAVA","HTML", "CSS", "JavaScript", "TypeScript", "Python", "Rust"],
+  },
+  {
+    title: "Frontend Frameworks",
+    stacks: ["React JS", "Next.js"],
+  },
+  {
+    title: "React Ecosystems",
+    stacks: [
+      "React Testing Library",
+      "Framer Motion",
+      "Motion",
+      "React Router Dom",
+      "React Hook Form",
+      "Radix UI",
+      "Headless UI",
+      "Zod",
+    ],
+  },
+  {
+    title: "Components Libraries",
+    stacks: [
+      "Shadcn UI",
+      "Material UI",
+      "Mantine UI",
+      "Chakra UI",
+      "React Native Paper",
+    ],
+  },
+  {
+    title: "CSS Styling",
+    stacks: [
+      "Tailwind CSS",
+      "Emotion",
+      "Styled Components",
+      "CSS Modules",
+      "SASS",
+    ],
+  },
+  {
+    title: "Cross-Platform",
+    stacks: ["React Native", "Expo"],
+  },
+  {
+    title: "Backend",
+    stacks: [
+      "Node.js",
+      "Socket.io",
+      "Express.js",
+      "Mongoose",
+      "Prisma",
+    ],
+  },
+  {
+    title: "Databases/BASS/CMS",
+    stacks: [
+      "MongoDB",
+      "PostgreSQL",
+      "SQLite",
+      "Appwrite",
+      "Sanity.IO",
+      "Payload CMS",
+    ],
+  },
+  {
+    title: "Other Technologies",
+    stacks: [
+      "WebRTC",
+      "WebSockets",
+      "Socket.io",
+      "Cloudinary",
+      "Vercel",
+      "Netlify",
+    ],
+  },
+  {
+    title: "Other Tools",
+    stacks: ["VS Code", "Git", "GitHub", "Eslint", "Figma"],
+  },
+];
