@@ -3,7 +3,8 @@ import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa6'
-
+import { RiSpeakLine as SpeakIcon } from "react-icons/ri";
+import Image from 'next/image'
 const Hero = () => {
   return (
     <div className='pb-20 pt-36'>
@@ -17,24 +18,46 @@ const Hero = () => {
         </div>
         <div className='flex justify-center relative my-20 z-10 '>
           <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
-            <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 max-w-80'>
+            <h2 className='uppercase tracking-widest text-lg text-center text-blue-100 max-w-80 p-3'>
               Aritra Sarkar
-            </h2>
-            <TextGenerateEffect 
-              className='text-center text-[40px] md:text-5xl lg:text-6xl '
-              words='Transforming Concepts into Seamless User Experiences'
-            />
+            </h2> 
+              {/* <p className="text-sm text-white/80">
+              <SpeakIcon className="inline" /> aww-ree-tro
+            </p> */}
+              <div className="relative w-64 h-64 rounded-full overflow-hidden mb-4">
+                <Image
+                  src="/profilePic.jpg"
+                  alt="Aritra Sarkar"
+                  layout="fill"
+                  objectFit="cover"
+                  priority // Important for initial load
+                />
+              </div>
             <p className='text-center md:tracking-wider text-sm md:text-lg lg:text-2xl'>
-              Hi, I&apos;m Aritra, a Next.js Developer from India.
+              Hi, I&apos;m Aritra, a FullStack Developer from India.
             </p>
 
-            <a href="#about">
-              <MagicButton 
-                title="Show my work"
-                icon = {<FaLocationArrow />}
-                position='right'
-              />
-            </a>
+            <div className='flex items-center gap-2 py-4'>
+              <a href="#about">
+                <MagicButton 
+                  title="About Me"
+                  icon = {<FaLocationArrow />}
+                  position='right'
+                />
+              </a>
+              <a 
+              href="resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+                <MagicButton 
+                  title="Download Resume"
+                  icon = {<FaLocationArrow />}
+                  position='right'
+                />
+              </a>
+            </div>
           </div>
         </div>
     </div>
