@@ -21,7 +21,7 @@ const MyPhoto: React.FC<Props> = ({ className }) => {
       )}
     >
       <Image
-        src="/profilePic.png"
+        src="/ProfilePic.png"
         alt="Aritra Sarkar"
         height={2190}
         width={2190}
