@@ -28,7 +28,7 @@ const Hero = () => {
             </p> */}
               <div className="relative w-64 h-64 rounded-full overflow-hidden mb-4">
                 <Image
-                  src="/profilePic.jpg"
+                  src="/profilePic.png"
                   alt="Aritra Sarkar"
                   layout="fill"
                   objectFit="cover"
