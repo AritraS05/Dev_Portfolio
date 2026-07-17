@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" role="img" aria-label="Buyceps multi-agent pipeline">
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa2ad"/>
+    </marker>
+  </defs>
+  <text x="600" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#141414">One endpoint, three agents</text>
+
+  <g>
+    <rect x="40" y="95" width="150" height="52" rx="14" fill="#fff4f2" stroke="#FA3C23" stroke-width="2"/>
+    <text x="115" y="128" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">💬 Text</text>
+    <rect x="40" y="165" width="150" height="52" rx="14" fill="#fff4f2" stroke="#FA3C23" stroke-width="2"/>
+    <text x="115" y="198" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">🎙 Voice</text>
+    <rect x="40" y="235" width="150" height="52" rx="14" fill="#fff4f2" stroke="#FA3C23" stroke-width="2"/>
+    <text x="115" y="268" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">🖼 Image</text>
+  </g>
+
+  <line x1="198" y1="121" x2="280" y2="180" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <line x1="198" y1="191" x2="280" y2="191" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <line x1="198" y1="261" x2="280" y2="202" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+  <g>
+    <rect x="288" y="155" width="190" height="72" rx="16" fill="#141414"/>
+    <text x="383" y="186" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">POST /agent/query</text>
+    <text x="383" y="210" text-anchor="middle" font-size="13" fill="#c9ced6">FastAPI · thread pool</text>
+  </g>
+
+  <line x1="486" y1="165" x2="560" y2="112" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <line x1="486" y1="191" x2="560" y2="191" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <line x1="486" y1="217" x2="560" y2="270" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+  <g>
+    <rect x="568" y="78" width="210" height="62" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="673" y="104" text-anchor="middle" font-size="16" font-weight="700" fill="#141414">Vision agent</text>
+    <text x="673" y="126" text-anchor="middle" font-size="13" fill="#5c6672">Llama-4 image features</text>
+    <rect x="568" y="160" width="210" height="62" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="673" y="186" text-anchor="middle" font-size="16" font-weight="700" fill="#141414">Search agent</text>
+    <text x="673" y="208" text-anchor="middle" font-size="13" fill="#5c6672">MiniLM ➜ FAISS index</text>
+    <rect x="568" y="242" width="210" height="62" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="673" y="268" text-anchor="middle" font-size="16" font-weight="700" fill="#141414">Response agent</text>
+    <text x="673" y="290" text-anchor="middle" font-size="13" fill="#5c6672">writes the final answer</text>
+  </g>
+
+  <line x1="786" y1="109" x2="868" y2="176" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <line x1="786" y1="191" x2="868" y2="191" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <line x1="786" y1="273" x2="868" y2="206" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+  <g>
+    <rect x="876" y="150" width="280" height="82" rx="18" fill="#FA3C23"/>
+    <text x="1016" y="184" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">Ranked recommendations</text>
+    <text x="1016" y="210" text-anchor="middle" font-size="13" fill="#ffe3dd">multi-factor relevance scoring</text>
+  </g>
+
+  <text x="600" y="392" text-anchor="middle" font-size="14" fill="#8a919c">Hybrid search: sentence-transformer embeddings fused with vision features over an Amazon catalog</text>
+</svg>

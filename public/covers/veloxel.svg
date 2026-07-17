@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="VeloXel cover">
+  <rect width="1200" height="750" fill="#7C3AED"/>
+  <g fill="#ffffff">
+    <rect x="120" y="480" width="42" height="120" rx="8" fill-opacity="0.25"/>
+    <rect x="178" y="420" width="42" height="180" rx="8" fill-opacity="0.45"/>
+    <rect x="236" y="330" width="42" height="270" rx="8" fill-opacity="0.85"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.2">
+    <rect x="950" y="140" width="46" height="46" rx="10"/>
+    <rect x="1004" y="140" width="46" height="46" rx="10" fill-opacity="0.45"/>
+    <rect x="1058" y="140" width="46" height="46" rx="10"/>
+    <rect x="950" y="194" width="46" height="46" rx="10" fill-opacity="0.45"/>
+    <rect x="1004" y="194" width="46" height="46" rx="10"/>
+    <rect x="1058" y="194" width="46" height="46" rx="10" fill-opacity="0.45"/>
+  </g>
+  <path d="M900 610 h180" stroke="#ffffff" stroke-opacity="0.5" stroke-width="12" stroke-linecap="round"/>
+  <path d="M860 640 h150" stroke="#ffffff" stroke-opacity="0.3" stroke-width="12" stroke-linecap="round"/>
+  <text x="600" y="410" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="140" font-weight="800" fill="#ffffff" letter-spacing="-3">VeloXel</text>
+  <text x="600" y="480" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="34" font-weight="600" fill="#ffffff" fill-opacity="0.85">scalar → SIMD → 9.6× faster frames</text>
+</svg>

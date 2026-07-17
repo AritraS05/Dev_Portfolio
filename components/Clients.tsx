@@ -4,19 +4,18 @@ import { testimonials } from '@/data'
 
 const Clients = () => {
   return (
-    <div className='py-20' id='achievements'>
-      <h1 className='heading'>
-        Achievements
-        {/* <span className='text-purple'> satisfied Clients</span> */}
-      </h1>
-      <div className='flex flex-col items-center max-lg:mt-10'>
+    <section className='w-full py-24' id='achievements'>
+      <h2 className='text-3xl font-bold tracking-tight text-neutral-900 md:text-5xl'>
+        Achievements<span className='text-[#A855F7]'>.</span>
+      </h2>
+      <div className='mt-10 flex flex-col items-center'>
         <InfiniteMovingCards
           items={testimonials}
           direction='right'
           speed='fast'
         />
       </div>
-    </div>
+    </section>
   )
 }
 

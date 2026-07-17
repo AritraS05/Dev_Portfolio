@@ -87,28 +87,19 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw]"
-            style={{
-                background: 'rgb(2,0,36)',
-              backgroundColor:
-                'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,255,1) 34%, rgba(27,147,171,1) 100%)',
-            }}
+            className="relative w-[80vw] max-w-full flex-shrink-0 rounded-2xl border border-neutral-200 bg-white px-8 py-7 md:w-[26rem]"
             key={idx}
           >
             <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-              ></div>
-              <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
+              <span className="relative z-20 text-lg font-bold leading-snug tracking-tight text-neutral-900">
                 {item.quote}
               </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                  <span className=" text-lg leading-[1.6] text-white font-normal">
+              <div className="relative z-20 mt-4 flex flex-row items-center">
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-sm font-semibold leading-[1.6] text-neutral-700">
                     {item.name}
                   </span>
-                  <span className=" text-sm leading-[1.6] text-white font-normal">
+                  <span className="text-sm leading-[1.6] text-neutral-500">
                     {item.title}
                   </span>
                 </span>

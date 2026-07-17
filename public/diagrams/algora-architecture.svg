@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 748" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" role="img" aria-label="Architecture diagram of the Algora platform">
+  <style>
+    svg {
+      --bg: #f2f4f7;
+      --surface: #ffffff;
+      --ink: #1b2430;
+      --muted: #5d6c7e;
+      --line: #d5dce5;
+      --accent: #c06a26;
+      --badge-ink: #ffffff;
+      --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --bg: #0e141b;
+        --surface: #172029;
+        --ink: #e7edf4;
+        --muted: #8da0b5;
+        --line: #2c3a49;
+        --accent: #e4924e;
+        --badge-ink: #10151c;
+      }
+    }
+    .t-h1   { fill: var(--ink);   font-size: 17px; font-weight: 650; }
+    .t-col  { fill: var(--muted); font: 600 10.5px var(--mono); letter-spacing: 0.14em; }
+    .t-title{ fill: var(--ink);   font: 600 12.5px var(--mono); }
+    .t-row  { fill: var(--muted); font: 500 11px var(--mono); }
+    .t-lab  { fill: var(--muted); font: 500 9.5px var(--mono); }
+    .t-leg  { fill: var(--muted); font: 500 11px var(--mono); }
+    .t-hot  { fill: var(--accent); }
+    .box    { fill: var(--surface); stroke: var(--line); stroke-width: 1; }
+    .box-ext{ stroke-dasharray: 4 3; }
+    .div    { stroke: var(--line); stroke-width: 1; }
+    .edge   { stroke: var(--muted); stroke-width: 1.3; fill: none; }
+    .edge-hot { stroke: var(--accent); stroke-width: 1.6; fill: none; }
+    .edge-dash{ stroke-dasharray: 5 4; }
+    .badge-c { fill: var(--accent); }
+    .badge-t { fill: var(--badge-ink); font: 700 10px var(--mono); text-anchor: middle; }
+    .chip   { fill: none; stroke: var(--line); stroke-width: 1; }
+    .chip-t { fill: var(--muted); font: 500 10.5px var(--mono); text-anchor: middle; }
+    .mk-grey { fill: var(--muted); }
+    .mk-hot  { fill: var(--accent); }
+  </style>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="mk-grey"/>
+    </marker>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="mk-hot"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1120" height="748" fill="var(--bg)"/>
+
+  <text x="44" y="34" class="t-h1">Algora — system architecture</text>
+
+  <g transform="translate(0,48)">
+    <!-- column headers -->
+    <text x="148"  y="36" text-anchor="middle" class="t-col">CLIENT</text>
+    <text x="469"  y="36" text-anchor="middle" class="t-col">YOUR SERVER</text>
+    <text x="776"  y="36" text-anchor="middle" class="t-col">DATA &amp; QUEUE</text>
+    <text x="1015" y="36" text-anchor="middle" class="t-col">EXTERNAL</text>
+
+    <!-- external API edges (routed over the top) -->
+    <path d="M500,96 V60 H1015 V118" class="edge" marker-end="url(#ag)"/>
+    <text x="760" y="52" text-anchor="middle" class="t-lab">assistant chat → Gemini</text>
+    <path d="M545,96 V78 H900 V292 H938" class="edge" marker-end="url(#ag)"/>
+    <text x="722" y="92" text-anchor="middle" class="t-lab">password-reset email → Resend</text>
+
+    <!-- Browser -->
+    <rect x="44" y="96" width="208" height="250" rx="8" class="box"/>
+    <text x="58" y="122" class="t-title">Browser — React SPA</text>
+    <line x1="58" y1="134" x2="238" y2="134" class="div"/>
+    <text x="58" y="158" class="t-row">Monaco editor · Solve</text>
+    <text x="58" y="180" class="t-row">problems &amp; leaderboards</text>
+    <text x="58" y="202" class="t-row">meeting panel</text>
+    <text x="58" y="224" class="t-row">AI assistant panel</text>
+    <text x="58" y="246" class="t-row">profile &amp; growth chart</text>
+
+    <!-- Peer browser -->
+    <rect x="44" y="430" width="208" height="68" rx="8" class="box"/>
+    <text x="58" y="456" class="t-title">Teammate's browser</text>
+    <text x="58" y="478" class="t-row">signals via the same /ws</text>
+
+    <!-- Backend -->
+    <rect x="324" y="96" width="290" height="250" rx="8" class="box"/>
+    <text x="338" y="122" class="t-title">API server — Express + ws :3000</text>
+    <line x1="338" y1="134" x2="600" y2="134" class="div"/>
+    <text x="338" y="158" class="t-row">JWT auth · bcrypt — /auth/*</text>
+    <text x="338" y="180" class="t-row">problems · profiles · leaderboards</text>
+    <text x="338" y="202" class="t-row">submissions + Big-O analyzer</text>
+    <text x="338" y="224" class="t-row">assistant proxy — /assistant/chat</text>
+    <text x="338" y="246" class="t-row">WebRTC signaling — /ws</text>
+
+    <!-- Redis -->
+    <rect x="686" y="120" width="180" height="96" rx="8" class="box"/>
+    <text x="700" y="146" class="t-title">Redis</text>
+    <line x1="700" y1="158" x2="852" y2="158" class="div"/>
+    <text x="700" y="182" class="t-row">list "problems"</text>
+    <text x="700" y="202" class="t-row">FIFO job queue</text>
+
+    <!-- Worker -->
+    <rect x="686" y="430" width="180" height="190" rx="8" class="box"/>
+    <text x="700" y="456" class="t-title">Judge worker</text>
+    <line x1="700" y1="468" x2="852" y2="468" class="div"/>
+    <text x="700" y="490" class="t-row">RPOP loop · 1s poll</text>
+    <text x="700" y="510" class="t-row">Docker sandbox per run</text>
+    <text x="700" y="530" class="t-row">no net · 256MB · 1 CPU</text>
+    <circle cx="707" cy="546" r="9" class="badge-c"/>
+    <text x="707" y="550" class="badge-t">4</text>
+    <text x="722" y="550" class="t-row t-hot">run vs test cases</text>
+    <text x="700" y="572" class="t-row">5s timeout / run</text>
+    <text x="700" y="592" class="t-row">runtime + peak RSS</text>
+
+    <!-- Postgres -->
+    <rect x="324" y="430" width="290" height="190" rx="8" class="box"/>
+    <text x="338" y="456" class="t-title">PostgreSQL — Prisma</text>
+    <line x1="338" y1="468" x2="600" y2="468" class="div"/>
+    <rect x="338" y="486" width="58"  height="24" rx="6" class="chip"/>
+    <text x="367" y="502" class="chip-t">User</text>
+    <rect x="406" y="486" width="82"  height="24" rx="6" class="chip"/>
+    <text x="447" y="502" class="chip-t">Problem</text>
+    <rect x="338" y="520" width="92"  height="24" rx="6" class="chip"/>
+    <text x="384" y="536" class="chip-t">TestCase</text>
+    <rect x="440" y="520" width="112" height="24" rx="6" class="chip"/>
+    <text x="496" y="536" class="chip-t">Submissions</text>
+    <text x="338" y="576" class="t-row">hidden tests stay server-side;</text>
+    <text x="338" y="594" class="t-row">verdicts + metrics per submission</text>
+
+    <!-- Gemini -->
+    <rect x="940" y="120" width="150" height="84" rx="8" class="box box-ext"/>
+    <text x="954" y="146" class="t-title">Gemini API</text>
+    <text x="954" y="170" class="t-row">assistant chat</text>
+
+    <!-- Resend -->
+    <rect x="940" y="250" width="150" height="84" rx="8" class="box box-ext"/>
+    <text x="954" y="276" class="t-title">Resend</text>
+    <text x="954" y="300" class="t-row">reset emails</text>
+
+    <!-- Browser <-> Backend edges -->
+    <path d="M252,146 H322" class="edge" marker-end="url(#ag)"/>
+    <text x="288" y="134" text-anchor="middle" class="t-lab">/api · JWT</text>
+    <circle cx="270" cy="146" r="9" class="badge-c"/>
+    <text x="270" y="150" class="badge-t">1</text>
+
+    <path d="M254,196 H322" class="edge" marker-start="url(#ag)" marker-end="url(#ag)"/>
+    <text x="288" y="184" text-anchor="middle" class="t-lab">/ws</text>
+
+    <path d="M324,246 H254" class="edge edge-dash" marker-end="url(#ag)"/>
+    <text x="288" y="234" text-anchor="middle" class="t-lab">poll verdict</text>
+    <circle cx="306" cy="246" r="9" class="badge-c"/>
+    <text x="306" y="250" class="badge-t">6</text>
+
+    <!-- WebRTC P2P -->
+    <path d="M148,348 V428" class="edge edge-dash" marker-start="url(#ag)" marker-end="url(#ag)"/>
+    <text x="162" y="384" class="t-lab">WebRTC P2P</text>
+    <text x="162" y="398" class="t-lab">video · voice · screen</text>
+
+    <!-- Backend -> Redis -->
+    <path d="M614,146 H684" class="edge-hot" marker-end="url(#ah)"/>
+    <text x="650" y="134" text-anchor="middle" class="t-lab t-hot">LPUSH job</text>
+    <circle cx="650" cy="146" r="9" class="badge-c"/>
+    <text x="650" y="150" class="badge-t">2</text>
+
+    <!-- Redis -> Worker -->
+    <path d="M766,216 V428" class="edge-hot" marker-end="url(#ah)"/>
+    <circle cx="766" cy="306" r="9" class="badge-c"/>
+    <text x="766" y="310" class="badge-t">3</text>
+    <text x="782" y="330" class="t-lab t-hot">RPOP job</text>
+    <text x="782" y="344" class="t-lab">1s poll loop</text>
+
+    <!-- Worker -> Postgres -->
+    <path d="M686,540 H616" class="edge-hot" marker-end="url(#ah)"/>
+    <circle cx="650" cy="540" r="9" class="badge-c"/>
+    <text x="650" y="544" class="badge-t">5</text>
+    <text x="650" y="562" text-anchor="middle" class="t-lab t-hot">UPDATE row</text>
+
+    <!-- Backend <-> Postgres -->
+    <path d="M469,348 V428" class="edge" marker-start="url(#ag)" marker-end="url(#ag)"/>
+    <text x="481" y="392" class="t-lab">Prisma</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(44,716)">
+    <line x1="0" y1="-4" x2="26" y2="-4" class="edge-hot"/>
+    <text x="34" y="0" class="t-leg">submission pipeline 1–6</text>
+    <line x1="240" y1="-4" x2="266" y2="-4" class="edge"/>
+    <text x="274" y="0" class="t-leg">request / query</text>
+    <line x1="420" y1="-4" x2="446" y2="-4" class="edge edge-dash"/>
+    <text x="454" y="0" class="t-leg">polling &amp; peer-to-peer (never touches the server)</text>
+  </g>
+</svg>

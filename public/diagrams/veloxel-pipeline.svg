@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" role="img" aria-label="VeloXel processing chain and speedup story">
+  <defs>
+    <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa2ad"/>
+    </marker>
+  </defs>
+  <text x="600" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#141414">The grading chain, earned speedup by speedup</text>
+
+  <g>
+    <rect x="40" y="95" width="170" height="76" rx="16" fill="#f6f1ff" stroke="#7C3AED" stroke-width="2.5"/>
+    <text x="125" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">Float-RGBA frame</text>
+    <text x="125" y="151" text-anchor="middle" font-size="13" fill="#5c6672">64-byte aligned</text>
+  </g>
+  <line x1="218" y1="133" x2="272" y2="133" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+  <g>
+    <rect x="280" y="95" width="160" height="76" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="360" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">ColorGrade</text>
+    <text x="360" y="151" text-anchor="middle" font-size="13" fill="#5c6672">exposure · contrast · sat</text>
+  </g>
+  <line x1="448" y1="133" x2="502" y2="133" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+  <g>
+    <rect x="510" y="95" width="150" height="76" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="585" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">3D LUT</text>
+    <text x="585" y="151" text-anchor="middle" font-size="13" fill="#5c6672">.cube · trilinear</text>
+  </g>
+  <line x1="668" y1="133" x2="722" y2="133" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+  <g>
+    <rect x="730" y="95" width="150" height="76" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="805" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">BoxBlur</text>
+    <text x="805" y="151" text-anchor="middle" font-size="13" fill="#5c6672">spatial · halo op</text>
+  </g>
+  <line x1="888" y1="133" x2="942" y2="133" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+  <g>
+    <rect x="950" y="95" width="150" height="76" rx="16" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="1025" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#141414">Gamma</text>
+    <text x="1025" y="151" text-anchor="middle" font-size="13" fill="#5c6672">minimax poly pow</text>
+  </g>
+
+  <text x="600" y="222" text-anchor="middle" font-size="15" font-weight="600" fill="#5c6672">every stage runs over 128×128 tiles · custom thread pool · runtime NEON/AVX2 dispatch</text>
+
+  <g>
+    <rect x="150" y="270" width="230" height="90" rx="18" fill="#ffffff" stroke="#d8dde3" stroke-width="2"/>
+    <text x="265" y="305" text-anchor="middle" font-size="16" font-weight="700" fill="#141414">Scalar baseline</text>
+    <text x="265" y="335" text-anchor="middle" font-size="22" font-weight="800" fill="#5c6672">25 MPix/s</text>
+    <rect x="485" y="270" width="230" height="90" rx="18" fill="#ffffff" stroke="#7C3AED" stroke-width="2.5"/>
+    <text x="600" y="305" text-anchor="middle" font-size="16" font-weight="700" fill="#141414">+ 10 threads, tiled</text>
+    <text x="600" y="335" text-anchor="middle" font-size="22" font-weight="800" fill="#7C3AED">175 MPix/s</text>
+    <rect x="820" y="270" width="230" height="90" rx="18" fill="#7C3AED"/>
+    <text x="935" y="305" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">+ NEON SIMD</text>
+    <text x="935" y="335" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">241 MPix/s · 9.6×</text>
+  </g>
+  <line x1="388" y1="315" x2="477" y2="315" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+  <line x1="723" y1="315" x2="812" y2="315" stroke="#9aa2ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+
+  <text x="600" y="405" text-anchor="middle" font-size="14" fill="#8a919c">1080p full chain on Apple silicon · byte-identical output verified against the scalar reference</text>
+</svg>

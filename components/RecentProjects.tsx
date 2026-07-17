@@ -1,53 +1,43 @@
-import { projects } from '@/data'
+import Link from 'next/link'
 import React from 'react'
-// import { div } from 'three/webgpu'
-import { PinContainer } from './ui/3d-pin'
-import { FaLocationArrow } from 'react-icons/fa6'
+import { FaArrowRight } from 'react-icons/fa6'
+import ProjectCard from './site/project-card'
+import { FEATURED_PROJECTS } from '@/data/project-details'
 
 const RecentProjects = () => {
   return (
-    <div className='py-20' id='projects'>
-      <h1 className='heading'>
-        A small selection of {' '}
-        <span className='text-purple'>recent projects</span>
-      </h1>
-      <div className='flex flex-wrap justify-center items-center p-4 gap-x-24 gaqp-y-8 mt-10'>
-        {projects.map(({id,title,des,img, iconLists, link})=>(
-          <div key={id} className='sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem]  flex items-center justify-center sm:w-[570px] w-[80vw]'>
-            <PinContainer title={link} href={link} >
-               <div className='relative items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10'>
-                <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d'>
-                  <img src='/bg.png' alt='bg-img' />
-                </div>
-                <img src={img} alt={title} className='z-10 absolute bottom-0' />
-               </div>
-               <h1 className='font-bold lg:text-2xl md:text-xl text-base line-clamp-1'>
-                {title}
-               </h1>
+    <section id='projects' className='w-full py-24'>
+      <h2 className='text-3xl font-bold tracking-tight text-neutral-900 md:text-5xl'>
+        Selected work<span className='text-[#FA3C23]'>.</span>
+      </h2>
 
-               <p className='lg:text-xl lg:font-normal font-light text-sm line-clamp-2'>
-                {des}
-               </p>
-
-               <div className='flex items-center justify-between mt-7 mb-3'>
-                 <div className='flex items-center'>
-                  {iconLists.map((icon,index)=>(
-                    <div key={icon} className='border border-white/[0.2]rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center'
-                    style={{transform:`translateX(-${5*index*2}px)`}}>
-                      <img src= {icon} alt={icon} className='p-2'/>
-                    </div>
-                  ))}
-                 </div>
-                 <div className='flex justify-center items-center'>
-                  <p className='flex lg:text-xl md:text-xs text-sm text-purple'>Check Live Site</p>
-                  <FaLocationArrow className='ms-3' color="#CBACF9" />
-                 </div>
-               </div>
-            </PinContainer>
-          </div>
-        ))}
+      <div className='mt-14 grid gap-x-16 gap-y-20 md:grid-cols-2'>
+        {FEATURED_PROJECTS.map((project, i) => {
+          // An odd final card would sit alone in the left column — span the
+          // row and re-center it at single-column width so it looks balanced.
+          const lonelyLast =
+            FEATURED_PROJECTS.length % 2 === 1 && i === FEATURED_PROJECTS.length - 1
+          return (
+            <div
+              key={project.slug}
+              className={lonelyLast ? 'md:col-span-2 md:mx-auto md:w-[calc(50%-2rem)]' : ''}
+            >
+              <ProjectCard project={project} />
+            </div>
+          )
+        })}
       </div>
-    </div>
+
+      <div className='mt-20 flex justify-center'>
+        <Link
+          href='/projects-add'
+          className='group inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-3 text-sm font-medium text-neutral-800 transition-colors hover:border-neutral-400'
+        >
+          A few more projects
+          <FaArrowRight className='h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5' />
+        </Link>
+      </div>
+    </section>
   )
 }
 

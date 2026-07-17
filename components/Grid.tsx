@@ -1,69 +1,54 @@
-import { gridItems } from "@/data";
-import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 import { SKILLS } from "@/data";
-import { Badge } from "./ui/badge";
 import AnimationContainer from "./animated/animated-container";
+import EmailCopyCard from "./site/email-copy-card";
+
+const ACCENTS = ["#FA3C23", "#0D8BFF", "#00C060", "#A855F7"];
+
 const Grid = () => {
   return (
-    <section id="about">
-      <AnimationContainer className="w-full py-12 lg:py-16">
-      <h2 className="mb-8 text-2xl font-bold tracking-tight text-center md:text-left text-white lg:text-start">
-        About me
-      </h2>
+    <section id="about" className="w-full py-24">
+      <AnimationContainer className="w-full">
+        <h2 className="text-3xl font-bold tracking-tight text-neutral-900 md:text-5xl">
+          About me<span className="text-[#0D8BFF]">.</span>
+        </h2>
 
-      <p className="w-full text-base font-normal leading-7 text-justify text-neutral-200">
-        Hi, I&apos;m Aritra Sarkar! I&apos;m a passionate developer with a love
-        for turning ideas into digital experiences. With a focus on clean code
-        and creative solutions, I enjoy building projects that solve real-world
-        problems. When I&apos;m not coding, I&apos;m exploring new technologies,
-        learning. Join me as I
-        explore the intersection of tech and creativity!
-      </p>
-    </AnimationContainer>
-    <AnimationContainer className="w-full ">
-      <div className="flex flex-col items-start mt-8">
-        <div className="flex flex-col flex-wrap items-start mb-2 space-y-4">
-          {SKILLS?.map(({ title, stacks }) => (
-            <AnimationContainer
-            key={title}
-            className="flex fex-col items-center"
-          >
-              <div>
-                <h3 className="items-start mb-3 text-lg font-bold text-white">
-                  {title}
-                </h3>
-                <div className="flex flex-wrap items-center gap-2 mb-5">
-                  {/* <ShowSkills stacks={stack} /> */}
-                  {stacks.map((stack) => (
-                    <Badge
-                      key={stack}
-                      className="bg-neutral-600/70 hover:bg-neutral-700 transition-colors duration-300 ease-in-out"
-                    >
-                      <span className="font-medium text-white">{stack}</span>
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-              </AnimationContainer>
-          ))}
-        </div>
-      </div>
-      <BentoGrid className="w-full py-20">
-        {gridItems.map((item, i) => (
-          <BentoGridItem
-            id={item.id}
-            key={i}
-            title={item.title}
-            description={item.description}
-            className={item.className}
-            img={item.img}
-            imgClassName={item.imgClassName}
-            titleClassName={item.titleClassName}
-            spareImg={item.spareImg}
-          />
-        ))}
-      </BentoGrid>
+        <p className="mt-8 max-w-3xl text-lg font-medium leading-relaxed text-neutral-800 md:text-xl">
+          Hi, I&apos;m Aritra Sarkar! I&apos;m a passionate developer with a love
+          for turning ideas into digital experiences. With a focus on clean code
+          and creative solutions, I enjoy building projects that solve real-world
+          problems. When I&apos;m not coding, I&apos;m exploring new technologies,
+          learning. Join me as I explore the intersection of tech and creativity!
+        </p>
       </AnimationContainer>
+
+      <div className="mt-14 space-y-8">
+        {SKILLS?.map(({ title, stacks }, groupIndex) => (
+          <AnimationContainer key={title} className="w-full">
+            <div>
+              <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-neutral-500">
+                <span
+                  aria-hidden
+                  className="inline-block h-2.5 w-2.5 rounded-sm"
+                  style={{ backgroundColor: ACCENTS[groupIndex % ACCENTS.length] }}
+                />
+                {title}
+              </h3>
+              <div className="flex flex-wrap items-center gap-2">
+                {stacks.map((stack) => (
+                  <span
+                    key={stack}
+                    className="rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-sm font-medium text-neutral-800 transition-colors hover:border-neutral-400"
+                  >
+                    {stack}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimationContainer>
+        ))}
+      </div>
+
+      <EmailCopyCard />
     </section>
   );
 };

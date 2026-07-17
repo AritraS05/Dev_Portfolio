@@ -3,8 +3,9 @@ import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import { Globe } from "./Globe";
 import { GlobeDemo } from "./GridGlobe";
-import { div } from "three/webgpu";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+// lottie-web touches `document` at import time, so it must never load during SSR
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 import { useState } from "react";
 import animationData from '@/data/confetti.json'
 import MagicButton from "./MagicButton";
@@ -131,7 +132,7 @@ export const BentoGridItem = ({
             {id === 6 && (
               <div className="mt-5 relative">
                 <div className={`absolute -bottom-5 right-0`}>
-                  <Lottie options={{
+                  <Lottie eventListeners={[]} options={{
                     loop: copied,
                     autoplay: copied,
                     animationData,

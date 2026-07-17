@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Algora cover">
+  <rect width="1200" height="750" fill="#0D8BFF"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="10" stroke-linecap="round">
+    <path d="M170 210 L110 300 L170 390"/>
+    <path d="M1030 360 L1090 450 L1030 540"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.14">
+    <rect x="880" y="130" width="150" height="34" rx="17"/>
+    <rect x="920" y="184" width="110" height="34" rx="17"/>
+    <rect x="850" y="238" width="180" height="34" rx="17"/>
+  </g>
+  <circle cx="215" cy="560" r="46" fill="#ffffff" fill-opacity="0.14"/>
+  <path d="M193 560 l16 16 l32 -34" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="600" y="410" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="150" font-weight="800" fill="#ffffff" letter-spacing="-4">algora</text>
+  <text x="600" y="480" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="34" font-weight="600" fill="#ffffff" fill-opacity="0.85">compete · submit · judged in a sandbox</text>
+</svg>
