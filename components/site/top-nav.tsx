@@ -3,13 +3,74 @@ import {
   FaBriefcase,
   FaLinkedinIn,
   FaEnvelope,
+  FaGithub,
+  FaCode,
 } from "react-icons/fa6";
+import { SiCodeforces, SiLeetcode, SiCodechef } from "react-icons/si";
 
 interface Props {
   variant?: "home" | "resume";
 }
 
 const LINKEDIN = "https://www.linkedin.com/in/aritrasarkar007";
+const GITHUB = "https://github.com/AritraS05";
+
+const CODING_PROFILES = [
+  {
+    label: "Codeforces",
+    href: "https://codeforces.com/profile/aritra_sarkar_42",
+    Icon: SiCodeforces,
+  },
+  {
+    label: "LeetCode",
+    href: "https://leetcode.com/u/aritra_sarkar",
+    Icon: SiLeetcode,
+  },
+  {
+    label: "CodeChef",
+    href: "https://www.codechef.com/users/aritra_s_007",
+    Icon: SiCodechef,
+  },
+];
+
+// Small square icon button that reveals the competitive-programming profiles
+// on hover / focus, without disturbing the nav layout.
+const CodingProfiles = () => (
+  <div className="relative">
+    {/* Invisible spacer keeps the collapsed footprint in the flex nav. */}
+    <div aria-hidden className="pointer-events-none invisible h-10 w-10" />
+
+    <div className="group absolute right-0 top-0 z-50 flex flex-col items-center overflow-hidden rounded-xl border border-neutral-200 bg-white transition-colors hover:border-neutral-400">
+      <button
+        type="button"
+        aria-label="Coding profiles"
+        className="grid h-10 w-10 place-items-center text-neutral-800 outline-none"
+      >
+        <FaCode className="h-4 w-4" />
+      </button>
+
+      <div className="grid grid-rows-[0fr] transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
+        <div className="overflow-hidden">
+          <div className="flex flex-col items-center gap-1 px-1 pb-1.5 pt-0.5">
+            {CODING_PROFILES.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                title={label}
+                className="grid h-8 w-8 place-items-center rounded-lg text-neutral-700 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 // A compact "Let's talk" pill that expands on hover / focus to reveal a
 // LinkedIn link and a mail shortcut, mirroring the reference site.
@@ -77,6 +138,19 @@ const TopNav = ({ variant = "home" }: Props) => {
         </a>
 
         <div className="flex items-center gap-3">
+          <a
+            href={GITHUB}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            title="GitHub"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-neutral-200 bg-white text-neutral-800 transition-colors hover:border-neutral-400 hover:bg-neutral-900 hover:text-white"
+          >
+            <FaGithub className="h-[1.15rem] w-[1.15rem]" />
+          </a>
+
+          <CodingProfiles />
+
           {onResume ? (
             <a href="/#projects" className="group flex items-center">
               <span className="z-10 grid h-10 w-10 -rotate-6 place-items-center rounded-xl bg-neutral-900 text-white shadow-[0.18rem_0.18rem_0_#0D8BFF] transition-transform duration-300 group-hover:rotate-0">
