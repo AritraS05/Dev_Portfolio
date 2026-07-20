@@ -39,6 +39,115 @@ export interface ProjectDetail {
 export const PROJECT_DETAILS: ProjectDetail[] = [
   // ─────────────────────────── Featured ───────────────────────────
   {
+    slug: "venue-ops-platform",
+    name: "Venue Ops Platform",
+    short:
+      "A nightlife booking and venue-operations product built alongside two working industry engineers — I own the business dashboard: real-time messaging, a Konva floor-plan editor and nine feature verticals.",
+    accent: "#7B2FF7",
+    dates: "Dec 2025 – Present",
+    categories: "Team Project | Real-Time | Production",
+    cover: "/covers/venue-ops-platform.svg",
+    tech: [
+      "React",
+      "TypeScript",
+      "Zustand",
+      "TanStack Query",
+      "WebSockets",
+      "Konva",
+      "Tailwind",
+    ],
+    links: [
+      {
+        label: "Overview",
+        href: "https://docs.google.com/document/d/e/2PACX-1vR20E1BKfCTtJOmwDjtfgaprc3FjayfmRInX-DvdGuEL4wxuGF11qD7GPZ621DRPYiv7O90tPWQ492E/pub",
+      },
+      { label: "Live", href: "https://nightsync.io" },
+    ],
+    sections: [
+      {
+        label: "Introduction",
+        heading: "Learning how software actually gets built",
+        body: [
+          "This is a two-surface nightlife product: a customer-facing site where people book tables and tickets for club events, and an internal dashboard where venue teams run the business behind it — events, inventory, artists, menus, merch and a floor plan of the room itself.",
+          "I joined it as a collaborative build alongside two working industry engineers, specifically to see how things are done outside coursework: pull requests, review cycles, a shared branch, a real deployment target and a codebase nobody can hold entirely in their head. I own the business dashboard end to end and shipped two feature PRs on the public site.",
+        ],
+      },
+      {
+        label: "Real-time",
+        heading: "One socket, many features",
+        body: [
+          "Messaging, issue tracking and presence all ride a single multiplexed WebSocket rather than a connection per feature. I wrote it as a singleton service that fans inbound frames out to per-event listener sets, so any component can subscribe and get a teardown closure back.",
+          "It reconnects on exponential backoff capped at thirty seconds, resets its attempt counter on open, and suppresses reconnection when the client disconnects deliberately. The Go backend streams JSON-Lines, so the client splits frames on newlines and tolerates two different envelope shapes — the kind of thing you only discover by integrating against a service somebody else owns.",
+        ],
+      },
+      {
+        label: "Hard parts",
+        heading: "A chat window that scrolls both ways",
+        body: [
+          "The message list paginates bi-directionally: older messages load upward, newer ones downward, and jump-to-search-result replaces the window entirely. That combination breaks naively — a slow page request can land after the window has already moved and merge duplicate ids into a virtualized list, corrupting React keys.",
+          "I fixed it with an epoch counter per chat space. Any fetch that replaces the window bumps the epoch; load-more requests capture the epoch when they start and discard their response if it changed. On top of that sit request-dedup guards with short cooldowns, because React StrictMode double-effects and socket bursts were firing the same fetch two and three times.",
+          "Sending is optimistic: a temporary message appears immediately, mirrors into any open reply thread, bumps the parent's reply count in three places at once, then promotes to the server id — or gets filtered back out if the write fails. Reactions work the same way, and every mutation falls back to HTTP when the socket is down.",
+        ],
+      },
+      {
+        label: "Canvas",
+        heading: "Drawing the room",
+        body: [
+          "Venue staff need to map tables onto a photo of their floor so bookings can point at a real place. I built that as a Konva canvas with rectangle, circle and polygon tools over the uploaded floor plan.",
+          "Coordinates are stored normalized between zero and one rather than in pixels, so a plan drawn on a laptop renders correctly on a phone and survives an image swap. Tables owned by another booking category render in a disabled state, and the editor deliberately allows only one unsaved shape at a time — a constraint that removed a whole class of ambiguous-save bugs.",
+        ],
+      },
+      {
+        label: "Working in a team",
+        heading: "What the group project actually taught me",
+        body: [
+          "The engineering I'm proudest of here is mostly unglamorous. Query keys became a hierarchical factory per feature because ad-hoc string keys stopped being invalidatable once several people were writing mutations. Form modules got split into schema, change detection and payload builder so edits send only dirty fields. A Vite plugin patches out the HMR reconnect reload because mobile backgrounding was wiping in-progress composer state during testing on real phones.",
+          "I also learned what a codebase looks like when it is shipping rather than finished. There are 2000-line components that want decomposing, debug logging still in production paths, and no automated test suite — all things I would push on with more time, and all things I could not see from the outside before working on something at this size.",
+        ],
+      },
+    ],
+    features: [
+      {
+        title: "Multiplexed WebSocket",
+        desc: "One connection carrying messaging, issues and presence, with backoff reconnect and per-event listener fan-out.",
+      },
+      {
+        title: "Epoch-guarded pagination",
+        desc: "Bi-directional cursor paging plus jump-to-message, with stale responses discarded by epoch comparison.",
+      },
+      {
+        title: "Virtualized chat",
+        desc: "TanStack Virtual list with manual scroll anchoring so prepending older messages doesn't jump the viewport.",
+      },
+      {
+        title: "Floor-plan editor",
+        desc: "Konva canvas with rect, circle and polygon tools over resolution-independent normalized coordinates.",
+      },
+      {
+        title: "Issue tracker",
+        desc: "Internal Jira-lite: eight statuses, priority and severity, duplicate and blocked-by relations, live comments.",
+      },
+      {
+        title: "QR redemption",
+        desc: "Door-scan workflow parsing a custom payload format, guarded by in-flight lock, cooldown and duplicate dedupe.",
+      },
+      {
+        title: "Merch variant SKUs",
+        desc: "Variant dimensions like size and colour expanded into a per-SKU matrix editor linked to inventory.",
+      },
+      {
+        title: "Ticket transfer flow",
+        desc: "On the public site: shareable transfer links with a six-state view machine and third-party detail redaction.",
+      },
+    ],
+    stats: [
+      { value: "9", label: "feature verticals owned end to end" },
+      { value: "2", label: "surfaces: customer booking site and ops dashboard" },
+      { value: "Live", label: "in production for real venues" },
+    ],
+    featured: true,
+  },
+  {
     slug: "algora",
     name: "Algora",
     short:
@@ -565,7 +674,14 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
 
 // Explicit display order for the featured "Selected work" grid; membership is
 // still driven by the `featured` flag, this only controls sequence.
-const FEATURED_ORDER = ["algora", "veloxel", "buyceps", "aritradocs", "pharmaflow"];
+const FEATURED_ORDER = [
+  "venue-ops-platform",
+  "algora",
+  "veloxel",
+  "buyceps",
+  "aritradocs",
+  "pharmaflow",
+];
 const featuredIndex = (slug: string) => {
   const i = FEATURED_ORDER.indexOf(slug);
   return i === -1 ? Number.MAX_SAFE_INTEGER : i;

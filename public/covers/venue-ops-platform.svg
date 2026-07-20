@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Venue Ops Platform cover">
+  <rect width="1200" height="750" fill="#7B2FF7"/>
+  <g fill="#ffffff">
+    <circle cx="205" cy="215" r="70" fill-opacity="0.18"/>
+    <circle cx="205" cy="215" r="34" fill-opacity="0.35"/>
+    <circle cx="1010" cy="565" r="96" fill-opacity="0.14"/>
+    <circle cx="1010" cy="565" r="46" fill-opacity="0.28"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.16">
+    <rect x="900" y="130" width="200" height="128" rx="18"/>
+    <rect x="922" y="156" width="156" height="15" rx="7.5" fill-opacity="0.5"/>
+    <rect x="922" y="186" width="112" height="15" rx="7.5" fill-opacity="0.5"/>
+    <rect x="922" y="216" width="138" height="15" rx="7.5" fill-opacity="0.5"/>
+  </g>
+  <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M110 630 q60 -60 120 0 t120 0 t120 0"/>
+  </g>
+  <text x="600" y="375" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="118" font-weight="800" fill="#ffffff" letter-spacing="-3">Venue Ops</text>
+  <text x="600" y="480" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="118" font-weight="800" fill="#ffffff" letter-spacing="-3">Platform</text>
+  <text x="600" y="545" text-anchor="middle" font-family="-apple-system, 'DM Sans', 'Segoe UI', sans-serif" font-size="32" font-weight="500" fill="#ffffff" fill-opacity="0.72" letter-spacing="1">Nightlife booking &amp; venue operations</text>
+</svg>

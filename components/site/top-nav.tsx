@@ -201,7 +201,7 @@ const TopNav = ({ variant = "home" }: Props) => {
               </a>
             ) : (
               <a
-                href="resume.pdf"
+                href="/AritraSarkar.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"

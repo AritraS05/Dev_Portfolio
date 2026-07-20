@@ -20,6 +20,14 @@ export const gridItems = [
 
 export const projects = [
   {
+    id: 11,
+    title: "Venue Ops Platform",
+    des: "Nightlife booking and venue-operations product built alongside two working industry engineers — real-time messaging, a Konva floor-plan editor and nine feature verticals on the business dashboard.",
+    img: "/covers/venue-ops-platform.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/fm.svg"],
+    link: "https://nightsync.io",
+  },
+  {
     id: 1,
     title: "AritraDocs",
     des: "Live Collaborative Document Tool ready for storing, sharing, commenting, live chatting and much more all in one place.",
@@ -137,17 +145,6 @@ export const companies = [
 ];
 
 export const workExperience = [
-  {
-    id: 1,
-    title: "Frontend Engineer",
-    desc: ` – Developing scalable, production-grade frontend systems for customer-facing platforms and internal business dashboards.
-    – Built modular, reusable UI components with strong focus on maintainability, accessibility, and performance.
-    – Implemented form validation, schema enforcement, and type safety to reduce runtime errors across releases.
-    – Collaborated closely with backend teams to integrate API-driven interfaces and handle edge cases gracefully.
-    – Actively participated in code reviews, debugging, and feature prioritization in a fast-paced environment.`,
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
-  },
   {
     id: 2,
     title: "App Dev",

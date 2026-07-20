@@ -35,9 +35,10 @@ const ACHIEVEMENTS = [
   },
   { title: "LeetCode Knight", detail: "Top ~5% globally" },
   { title: "Codeforces 1464 — Specialist", detail: "Peak competitive rating" },
+  { title: "CodeChef 1755 (3-star)", detail: "Peak competitive rating" },
   {
-    title: "CodeChef 1755 (3-star)",
-    detail: "Peak rating · 1st Place at HackForge Hackathon",
+    title: "1st Place — HackForge Hackathon",
+    detail: "Built a Web3 metaverse 2D game",
   },
 ];
 
@@ -64,8 +65,8 @@ const SKILL_GROUPS = [
     items: "Google GenAI APIs, PaddleOCR, CrewAI, FAISS, sentence-transformers, LLM data-extraction pipelines",
   },
   {
-    title: "Testing & Code Quality",
-    items: "Unit & integration testing, code review, pull-request-driven development",
+    title: "Code Quality",
+    items: "Code review, pull-request-driven development, TypeScript strict mode, schema validation (Zod)",
   },
   {
     title: "CS Fundamentals",
@@ -73,22 +74,13 @@ const SKILL_GROUPS = [
   },
 ];
 
-const EXPERIENCE = [
-  {
-    org: "Stealth Startup",
-    role: "Frontend Engineer Intern",
-    dates: "Dec 2025 – Present",
-    place: "Remote",
-    tech: "React, TypeScript, Zustand, TanStack Query, WebSockets, Canvas",
-    points: [
-      "Built real-time messaging, live reactions and presence over a unified WebSocket service with optimistic updates — in production serving ~450 active users in London and ~125 in Japan.",
-      "Eliminated UI jank on large schedules and media grids with list virtualization and bi-directional pagination, and cut redundant HTTP calls by tuning TanStack Query caching.",
-      "Developed an interactive Canvas-based floor-plan editor and frontend RBAC with state-machine-driven ticketing, audit and booking-transfer workflows — tests written before every release.",
-    ],
-  },
-];
-
 const PROJECTS = [
+  {
+    name: "Venue Ops Platform",
+    dates: "Dec 2025 – Present",
+    tech: "React, TypeScript, Zustand, TanStack Query, WebSockets, Konva",
+    line: "Venue-operations dashboard for a production nightlife booking platform, built alongside two working industry engineers — a multiplexed WebSocket real-time layer, epoch-guarded bi-directional message pagination and a Konva floor-plan editor.",
+  },
   {
     name: "Algora",
     dates: "June – July 2026",
@@ -220,9 +212,10 @@ export default function ResumePage() {
               <div className="mt-5 space-y-5 text-[16px] leading-relaxed text-neutral-800">
                 <p>
                   I&apos;m a software engineer from <strong>Kolkata, India</strong> —
-                  currently a <strong>Frontend Engineer Intern at Stealth</strong>,
-                  building real-time messaging, presence and Canvas tooling that runs{" "}
-                  <strong>in production</strong> for users across London and Japan.
+                  currently building a <strong>venue operations platform</strong>{" "}
+                  alongside two working industry engineers, where I own the business
+                  dashboard: real-time messaging, presence and a Canvas floor-plan
+                  editor running <strong>in production</strong>.
                 </p>
                 <p>
                   I&apos;m pursuing a <strong>B.E. in Information Technology at Jadavpur
@@ -253,7 +246,7 @@ export default function ResumePage() {
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <a
-                    href="/resume.pdf"
+                    href="/AritraSarkar.pdf"
                     download
                     className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-700"
                   >
@@ -261,7 +254,7 @@ export default function ResumePage() {
                     Download Resume
                   </a>
                   <a
-                    href="/resume.pdf"
+                    href="/AritraSarkar.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-5 py-2.5 text-sm font-medium text-neutral-800 transition-colors hover:border-neutral-400"
@@ -270,35 +263,6 @@ export default function ResumePage() {
                     <FaArrowRight className="h-3 w-3" />
                   </a>
                 </div>
-              </div>
-            </AnimationContainer>
-
-            <AnimationContainer className="w-full">
-              <h2 className="mt-12 text-[15px] font-semibold text-neutral-900">
-                My Experience
-              </h2>
-              <div className="mt-4 space-y-3">
-                {EXPERIENCE.map((job) => (
-                  <div
-                    key={job.org}
-                    className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
-                  >
-                    <div className="flex items-baseline justify-between gap-4">
-                      <p className="text-sm font-bold text-neutral-900">{job.org}</p>
-                      <p className="shrink-0 text-xs text-neutral-400">{job.place}</p>
-                    </div>
-                    <div className="mt-0.5 flex items-baseline justify-between gap-4">
-                      <p className="text-xs font-semibold text-neutral-600">{job.role}</p>
-                      <p className="shrink-0 text-xs text-neutral-400">{job.dates}</p>
-                    </div>
-                    <p className="mt-2 text-xs italic text-neutral-500">{job.tech}</p>
-                    <ul className="mt-3 list-disc space-y-2 pl-4 text-[13px] leading-relaxed text-neutral-600">
-                      {job.points.map((point) => (
-                        <li key={point.slice(0, 24)}>{point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
               </div>
             </AnimationContainer>
 

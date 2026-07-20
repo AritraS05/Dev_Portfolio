@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Aritra Sarkar">
+  <rect width="64" height="64" rx="15" fill="#171717"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+    <path d="M18.5 48.5 L32 16.5 L45.5 48.5" stroke="#ffffff"/>
+    <path d="M23.8 37.5 H40.2" stroke="#0D8BFF"/>
+  </g>
+</svg>
